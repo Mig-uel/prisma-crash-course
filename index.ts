@@ -56,18 +56,37 @@ async function main() {
   // console.log(user)
 
   /* CREATE ANOTHER ARTICLE */
-  const article = await prisma.article.create({
-    data: {
-      title: 'Sample Article',
-      body: 'This is a sample article',
-      author: {
-        connect: {
-          id: 2,
-        },
-      },
+  // const article = await prisma.article.create({
+  //   data: {
+  //     title: 'Sample Article',
+  //     body: 'This is a sample article',
+  //     author: {
+  //       connect: {
+  //         id: 2,
+  //       },
+  //     },
+  //   },
+  // })
+  // console.log(article)
+
+  /* LOOP OVER USERS ARTICLES */
+  const users = await prisma.user.findMany({
+    include: {
+      articles: true,
     },
   })
-  console.log(article)
+
+  users.forEach((user) => {
+    console.log(`USER: ${user.name}, EMAIL: ${user.email}`)
+    console.log('ARTICLES:')
+
+    user.articles.forEach((article) => {
+      console.log(`- TITLE: ${article.title} `)
+      console.log(`- BODY: ${article.body} `)
+    })
+
+    console.log('\n')
+  })
 }
 
 main()
