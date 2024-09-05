@@ -11,5 +11,8 @@
   "dependencies": {
     "@prisma/client": "^5.19.1",
     "prisma": "^5.19.1"
+  },
+  "scripts": {
+    "dev": "ts-node index.ts"
   }
 }
