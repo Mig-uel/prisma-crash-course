@@ -13,6 +13,10 @@ async function main() {
   //   },
   // })
   // console.log(user)
+
+  /* GET ALL USERS */
+  // const users = await prisma.user.findMany()
+  // console.log(users)
 }
 
 main()
