@@ -15,12 +15,12 @@ async function main() {
   // console.log(user)
 
   /* GET ALL USERS AND INCLUDE THEIR ARTICLES */
-  const users = await prisma.user.findMany({
-    include: {
-      articles: true,
-    },
-  })
-  console.log(users)
+  // const users = await prisma.user.findMany({
+  //   include: {
+  //     articles: true,
+  //   },
+  // })
+  // console.log(users)
 
   /* CREATE AN ARTICLE AND ASSOCIATE IT WITH A USER */
   // const article = await prisma.article.create({
@@ -54,6 +54,20 @@ async function main() {
   //   },
   // })
   // console.log(user)
+
+  /* CREATE ANOTHER ARTICLE */
+  const article = await prisma.article.create({
+    data: {
+      title: 'Sample Article',
+      body: 'This is a sample article',
+      author: {
+        connect: {
+          id: 2,
+        },
+      },
+    },
+  })
+  console.log(article)
 }
 
 main()
