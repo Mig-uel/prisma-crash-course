@@ -32,6 +32,9 @@ async function main() {
   // })
   // console.log(article)
 
+  /* GET ALL ARTICLES */
+  const articles = await prisma.article.findMany()
+  console.log(articles);
 }
 
 main()
