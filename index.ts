@@ -70,23 +70,34 @@ async function main() {
   // console.log(article)
 
   /* LOOP OVER USERS ARTICLES */
-  const users = await prisma.user.findMany({
-    include: {
-      articles: true,
+  // const users = await prisma.user.findMany({
+  //   include: {
+  //     articles: true,
+  //   },
+  // })
+
+  // users.forEach((user) => {
+  //   console.log(`USER: ${user.name}, EMAIL: ${user.email}`)
+  //   console.log('ARTICLES:')
+
+  //   user.articles.forEach((article) => {
+  //     console.log(`- TITLE: ${article.title} `)
+  //     console.log(`- BODY: ${article.body} `)
+  //   })
+
+  //   console.log('\n')
+  // })
+
+  /* UPDATE DATA */
+  const user = await prisma.user.update({
+    where: {
+      id: 1,
+    },
+    data: {
+      name: 'John Doe Jr.',
     },
   })
-
-  users.forEach((user) => {
-    console.log(`USER: ${user.name}, EMAIL: ${user.email}`)
-    console.log('ARTICLES:')
-
-    user.articles.forEach((article) => {
-      console.log(`- TITLE: ${article.title} `)
-      console.log(`- BODY: ${article.body} `)
-    })
-
-    console.log('\n')
-  })
+  console.log(user)
 }
 
 main()
