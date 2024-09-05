@@ -17,6 +17,21 @@ async function main() {
   /* GET ALL USERS */
   // const users = await prisma.user.findMany()
   // console.log(users)
+
+  /* CREATE AN ARTICLE AND ASSOCIATE IT WITH A USER */
+  // const article = await prisma.article.create({
+  //   data: {
+  //     title: "John's First Article",
+  //     body: "This is John's first article",
+  //     author: {
+  //       connect: {
+  //         id: 1,
+  //       },
+  //     },
+  //   },
+  // })
+  // console.log(article)
+
 }
 
 main()
