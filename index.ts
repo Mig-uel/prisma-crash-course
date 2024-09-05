@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 async function main() {
-  /* prisma queries */
+  /* PRISMA QUERIES */
 
   /* CREATE USER */
   // const user = await prisma.user.create({
